@@ -58,8 +58,6 @@ function SignUp() {
       setvalidEmail('');
     }
 
-    
-
         if (confirm_email === '') {
     setEmailconfError('entrer votre email');
       setIsRed(!isRed)
@@ -111,7 +109,6 @@ function SignUp() {
     setConfirm_password("");
     setEmailError("");
     setPasswordError("");
-    // Rediriger vers la page suivante (par exemple, "/home")
     navigate(`/`);
     //envoyer un message de seccés
     setSuccessMessage('Votre compte a été créé avec succès!');
@@ -119,7 +116,6 @@ function SignUp() {
     }catch (error) {
       // Si une erreur se produit lors de la création
       if (error.response) {
-        // Le statut 409 indique un conflit, par exemple, l'e-mail existe déjà
         if (error.response.data.errors) {
           const {email, password} = error.response.data.errors
           // Mettre à jour les messages d'erreur

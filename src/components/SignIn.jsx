@@ -7,7 +7,6 @@ import { useState } from 'react'
 import { useSuccess, } from '../SuccessProvider '
 import io from 'socket.io-client';
 
-
 function SignIn() {
   const [showpassword, setShowpassword] = useState(false)
   const [email, setEmail] = useState('');
@@ -17,8 +16,7 @@ function SignIn() {
   const [validEmail, setvalidEmail] = useState('')
   const [isRed, setIsRed] = useState(false)
   const navigate = useNavigate()
-  // const [error, setError] = useState('');
-  // const [ , setCookies] = useCookies(["access-token"])
+
   const { success, login, errormsg } = useSuccess();
 
     const handleSubmit = async  (event) => {
@@ -60,7 +58,7 @@ function SignIn() {
           const socket = io('http://localhost:3003', {
             transports: ['websocket'],
           });
-          socket.emit('updateUserStatus', userId, true); // Supposons que vous mettiez à jour le statut à "true"
+          socket.emit('updateUserStatus', userId, true);
       } else {
         // Gérer le cas où 'data' ou 'data.id' est indéfini
         console.error('La réponse ne contient pas la propriété attendue :', response);

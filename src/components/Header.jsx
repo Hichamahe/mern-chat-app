@@ -1,9 +1,6 @@
 import Profil from "./Profil";
 
-
 function Header() {
-
-   
 
   return (
     <header className="bg-principale flex justify-between items-center px-2 relative shadow-lg">

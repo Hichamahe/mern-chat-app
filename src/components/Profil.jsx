@@ -4,7 +4,6 @@ import axios from 'axios';
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
 
-
 function Profil() {
   const [user, setUser] = useState(null);
   const [cookies, setCookies] = useCookies(['access-token']);
@@ -14,7 +13,6 @@ function Profil() {
   const [Image, setImage] = useState('')
   const [showCompte , setShowCompte] = useState(false)
   
-
   useEffect(() => {
     const token = cookies['access-token'];
     const userId = localStorage.getItem('userID');
@@ -49,10 +47,8 @@ function Profil() {
     setImage(null)
     } catch (error) {
       console.error('Erreur lors de la déconnexion :', error);
-      // Gérer les erreurs de déconnexion
     }
   }
-
 
   const supprimerCompte = async (userId) => {
     await axios.delete('http://localhost:3003/home/delete', {
@@ -89,7 +85,6 @@ const handleFileUpload = async () => {
   const formData = new FormData();
   formData.append('image', file); // file est votre fichier d'image
   formData.append('id', userId); // userId est l'ID de l'utilisateur
-
 
   try {
     const response = await axios.post('http://localhost:3003/upload', formData, {
@@ -169,6 +164,5 @@ const toggleShowCompte = ()=>{
     </section>
   );
 }
-
 
 export default Profil
