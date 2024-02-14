@@ -16,7 +16,7 @@ function App() {
     <Routes>  
       <Route path='/' element={<SignIn />} />
       <Route path='/SignUp' element={<SignUp />}/>
-      <Route path='/Chats/:userId' element={<Chats />}/>
+      <Route path='/home/:userId' element={<Chats />}/>
     </Routes>
     </BrowserRouter>
     </SuccessProvider>
